@@ -18,19 +18,20 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.8827526&lng=77.6215994&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+     "https://corsproxy.io/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.886059700000011&lng=77.6284459&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
    );
    const resList = await data.json();
-   console.log(resList);
+  //  console.log(resList);
    
    const cards = resList.data?.cards || [];
    // find the card that contains the restaurants array and return that array
-   const restaurantsCard = cards.find((c) =>
-     c.card?.card?.gridElements?.infoWithStyle?.restaurants
-   );
+  //  const restaurantsCard = cards.find((c) =>
+  //    c.card?.card?.gridElements?.infoWithStyle?.restaurants
+  //  );
 
-  resturentList =
-     restaurantsCard?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+  // resturentList =
+  //    restaurantsCard?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+  resturentList = cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
    setResturentList(resturentList);
    setFilterResturent(resturentList)
   };
@@ -57,7 +58,7 @@ const Body = () => {
             resturentList = resturentList.filter(
               (item) => item.info.avgRating > 4
             );
-            setResturentList(resturentList);
+            setFilterResturent(resturentList);
           }}
         >
           Top Rated Restaurants
@@ -65,7 +66,7 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            setResturentList(resturentList);
+            setFilterResturent(resturentList);
           }}
         >
           Reset Filter
