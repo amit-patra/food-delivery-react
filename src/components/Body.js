@@ -2,6 +2,8 @@ import ResturentCard from "./ResturentCard";
 // import { resList } from "../utils/mockdata";
 import { useState, useEffect } from "react";
 import Shimmer from './Shimmer';
+import {BASE_URL} from '../utils/constants/';
+import { Link } from "react-router-dom";
 
 // Not using Key (Not Acceptable) <<<< Index As Key <<<<<<<<< Uniq Id (Best Practice)
 const Body = () => {
@@ -17,21 +19,12 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-     "https://corsproxy.io/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.886059700000011&lng=77.6284459&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-   );
+   //const url =  "https://corsproxy.io/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.886059700000011&lng=77.6284459&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+   const url = BASE_URL+"listRestaurants";
+   const data = await fetch(url);
    const resList = await data.json();
-  //  console.log(resList);
-   
-   const cards = resList.data?.cards || [];
-   // find the card that contains the restaurants array and return that array
-  //  const restaurantsCard = cards.find((c) =>
-  //    c.card?.card?.gridElements?.infoWithStyle?.restaurants
-  //  );
-
-  // resturentList =
-  //    restaurantsCard?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
-  resturentList = cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+   const cards = resList.data?.data || [];
+   resturentList = cards?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
    setResturentList(resturentList);
    setFilterResturent(resturentList)
   };
@@ -76,7 +69,7 @@ const Body = () => {
 
       <div className="res-cpntainer">
         {filterResturent.map((resturent) => (
-          <ResturentCard key={resturent.info.id} resData={resturent} />
+         <Link key={resturent.info.id} to={"/resturents/"+resturent.info.id}> <ResturentCard resData={resturent} /></Link>
         ))}
       </div>
     </div>

@@ -1,3 +1,4 @@
+export const BASE_URL = "https://namastedev.com/api/v1/"
 export const LOGO_URL = "https://png.pngtree.com/png-clipart/20220404/original/pngtree-motorcycles-cartoon-pizza-and-food-delivery-instant-online-png-image_7514345.png";
 // export const CDN_URL =
 //   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
