@@ -16,6 +16,9 @@ const Body = () => {
 
   useEffect(() => {
     fetchData();
+    return()=>{
+      console.log("Leaving from this page")
+    }
   }, []);
 
   const fetchData = async () => {
