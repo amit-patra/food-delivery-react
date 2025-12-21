@@ -1,4 +1,4 @@
-import ResturentCard from "./ResturentCard";
+import ResturentCard, { WithPromoted } from "./ResturentCard";
 // import { resList } from "../utils/mockdata";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -13,6 +13,7 @@ const Body = () => {
   let [searchText, setSearchText] = useState("");
 
   const onlineStatus = useOnlineStatus();
+  const ResturentCardPromoted = WithPromoted(ResturentCard);
 
   // When ever state variable update ,  react triggers a reconcilitation  cycle (re-renders the component)
 
@@ -32,6 +33,16 @@ const Body = () => {
     resturentList =
       cards?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
       [];
+    // Add promoted value for resturentList
+    resturentList = resturentList?.map((item, index) => {
+      index == 0 || index == 2
+        ? (item.info.promoted = true)
+        : (item.info.promoted = false);
+      return item;
+    });
+    //
+    console.log(resturentList);
+
     setResturentList(resturentList);
     setFilterResturent(resturentList);
   };
@@ -73,7 +84,7 @@ const Body = () => {
         </div>
         <div className="filter-btn pt-13">
           <button
-          className="mr-2 bg-amber-300 p-2 rounded-sm"
+            className="mr-2 bg-amber-300 p-2 rounded-sm"
             onClick={() => {
               resturentList = resturentList.filter(
                 (item) => item.info.avgRating > 4
@@ -97,8 +108,11 @@ const Body = () => {
       <div className="flex flex-wrap">
         {filterResturent.map((resturent) => (
           <Link key={resturent.info.id} to={"/resturents/" + resturent.info.id}>
-            {" "}
-            <ResturentCard resData={resturent} />
+            {resturent.info.promoted ? (
+              <ResturentCardPromoted resData={resturent} />
+            ) : (
+              <ResturentCard resData={resturent} />
+            )}
           </Link>
         ))}
       </div>
