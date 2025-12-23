@@ -1,16 +1,19 @@
 import ResturentCard, { WithPromoted } from "./ResturentCard";
 // import { resList } from "../utils/mockdata";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { BASE_URL } from "../utils/constants/";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 // Not using Key (Not Acceptable) <<<< Index As Key <<<<<<<<< Uniq Id (Best Practice)
 const Body = () => {
   let [resturentList, setResturentList] = useState([]);
   let [filterResturent, setFilterResturent] = useState([]);
   let [searchText, setSearchText] = useState("");
+
+   const  {loggedInUser, setUserName} = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
   const ResturentCardPromoted = WithPromoted(ResturentCard);
@@ -69,7 +72,7 @@ const Body = () => {
             onClick={() => {
               // Filter the resturent card and update ui
               // searchText
-              console.log(searchText);
+              // console.log(searchText);
 
               const filterResturent = resturentList.filter((item) =>
                 (item?.info?.name)
@@ -102,6 +105,15 @@ const Body = () => {
           >
             Reset Filter
           </button>
+        </div>
+        <div className="mt-13">
+          <label>User Name: </label>
+          <input
+            type="text"
+            className="searc-box outline-solid border-black p-1"
+            value={loggedInUser}
+            onChange={(e)=>setUserName(e.target.value)}
+          />
         </div>
       </div>
 
