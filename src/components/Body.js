@@ -44,7 +44,7 @@ const Body = () => {
       return item;
     });
     //
-    console.log(resturentList);
+    // console.log(resturentList);
 
     setResturentList(resturentList);
     setFilterResturent(resturentList);
