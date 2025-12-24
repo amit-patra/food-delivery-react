@@ -22,6 +22,31 @@ https://redux-toolkit.js.org/tutorials/rtk-query
     - Integration Testing
     - End to End Testing (e2e Testing)
 
-In App using React Testing Library
+# Setting Up Testing
+ - Install React Testing Library
+ - Installed jest
+ - Install Babel dependency
+ - Configure Babel 
+ - Configure Parcel Config file to disable default babel transpilation
+ - Jest Configuration
+ - Install jsdom library
+
+# Below are the command list
+1. In App using React Testing Library
 URL: https://testing-library.com/docs/react-testing-library/intro
-Install Command: npm i -D @testing-library/react @testing-library/dom
+2. Command: npm i -D @testing-library/react @testing-library/dom
+3. Install jest
+Command: npm i -D jest
+
+Folowwing Steps (In That URL https://jestjs.io/docs/getting-started)
+Need to Install Babel
+4. npm install --save-dev babel-jest @babel/core @babel/preset-env
+
+Jest Configuration (Initialize jest)
+5. npx create-jest
+6. npm install --save-dev jest-environment-jsdom
+
+
+
+
+
