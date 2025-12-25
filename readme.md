@@ -30,6 +30,9 @@ https://redux-toolkit.js.org/tutorials/rtk-query
  - Configure Parcel Config file to disable default babel transpilation
  - Jest Configuration
  - Install jsdom library
+ - Install @babel/preset-react - to make JSX work in test cases
+ - Include @babel/preset-react inside my babel config
+ - Install @testing-library/jest-dom
 
 # Below are the command list
 1. In App using React Testing Library
@@ -45,6 +48,17 @@ Need to Install Babel
 Jest Configuration (Initialize jest)
 5. npx create-jest
 6. npm install --save-dev jest-environment-jsdom
+
+To make JSX work in test cases
+7. npm i -D @babel/preset-react 
+
+Update the babel.config.js
+8. ["@babel/preset-react", {runtime: "automatic"}]
+
+Need to install this library to get the function like "toBeInTheDocument()"
+9. npm i -D @testing-library/jest-dom
+
+
 
 
 

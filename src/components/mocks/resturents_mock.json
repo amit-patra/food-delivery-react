@@ -1,0 +1,25 @@
+{
+  "info": {
+    "id": "234567",
+    "name": "Burger Hub",
+    "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/6/24/acfcaacc-edf0-4189-8264-d614d312c0ee_740457.JPG",
+    "locality": "Park Street",
+    "areaName": "Downtown",
+    "costForTwo": "₹300 for two",
+    "cuisines": ["Burgers", "American", "Fast Food"],
+    "avgRating": 4.5,
+    "avgRatingString": "4.5",
+    "totalRatingsString": "15K+ ratings",
+    "veg": false,
+    "sla": {
+      "deliveryTime": 25,
+      "lastMileTravel": 2,
+      "slaString": "25 mins"
+    },
+    "aggregatedDiscountInfoV3": {
+      "header": "40% OFF",
+      "subHeader": "UPTO ₹80"
+    },
+    "promoted": false
+  }
+}
