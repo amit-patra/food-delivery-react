@@ -2,35 +2,52 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Contact from "../Contact";
 
+describe("Contact Us page Test Case", () => {
+  /* afterAll(()=>{
+    console.log("After All") 
+  })
 
-test("Should load Contact Us component", () => {
-  render(<Contact />);
-  const heading = screen.getByRole("heading");
-  // Assertion
-  expect(heading).toBeInTheDocument();
-});
+  afterEach(()=>{
+     console.log("After Each") 
+  })
 
-test("Should load button isnide the component", () => {
-  render(<Contact />);
-  // Assertion
-  const button = screen.getByText("Submit");
-  expect(button).toBeInTheDocument();
-});
+  beforeAll(()=>{
+    console.log("Before All")
+  })
 
-test("Should load input inside the componet", () => {
-  render(<Contact />);
+  beforeEach(()=>{
+    console.log("Before Each")
+  }) */
 
-  const input = screen.getByPlaceholderText("name");
-  expect(input).toBeInTheDocument();
-});
+  test("Should load Contact Us component", () => {
+    render(<Contact />);
+    const heading = screen.getByRole("heading");
+    // Assertion
+    expect(heading).toBeInTheDocument();
+  });
 
-test("Should load 2 input boxes inside the componet", () => {
-  render(<Contact />);
+  test("Should load button isnide the component", () => {
+    render(<Contact />);
+    // Assertion
+    const button = screen.getByText("Submit");
+    expect(button).toBeInTheDocument();
+  });
 
-  const inputBoxes = screen.getAllByRole("textbox");
-  // console.log(inputBoxes.length);
+  test("Should load input inside the componet", () => {
+    render(<Contact />);
 
-  expect(inputBoxes.length).toBe(2);
-  // or
-  //   expect(inputBoxes.length).not.toBe(3);
+    const input = screen.getByPlaceholderText("name");
+    expect(input).toBeInTheDocument();
+  });
+
+  test("Should load 2 input boxes inside the componet", () => {
+    render(<Contact />);
+
+    const inputBoxes = screen.getAllByRole("textbox");
+    // console.log(inputBoxes.length);
+
+    expect(inputBoxes.length).toBe(2);
+    // or
+    //   expect(inputBoxes.length).not.toBe(3);
+  });
 });

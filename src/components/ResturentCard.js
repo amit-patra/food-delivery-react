@@ -12,7 +12,7 @@ const ResturentCard = (props) => {
     resData.info;
   const { loggedInUser } = useContext(UserContext);
   return (
-    <div className="m-4 p-4 w-[250px] rounded-sm bg-gray-200 hover:bg-gray-300">
+    <div data-testid="res-card" className="m-4 p-4 w-[250px] rounded-sm bg-gray-200 hover:bg-gray-300">
       <img
         alt="res-logo"
         className="rounded-lg h-56 w-full"

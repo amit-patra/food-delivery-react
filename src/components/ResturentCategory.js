@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ItemList from "./ItemList";
 const ResturentCategory = ({ category, showItem, setShowIndex}) => {
 //   const [isCollapse, setIsCollapse] = useState(false);

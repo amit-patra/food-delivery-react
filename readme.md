@@ -58,6 +58,11 @@ Update the babel.config.js
 Need to install this library to get the function like "toBeInTheDocument()"
 9. npm i -D @testing-library/jest-dom
 
+# Test command run automatic when will save the test page
+In package.json
+( "watch-test": "jest --watch")
+Run in Terminal: npm run watch-test
+
 
 
 

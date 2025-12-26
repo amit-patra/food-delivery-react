@@ -13,7 +13,9 @@ it("should render ResturentCard component with props data", () => {
 it("Should render ResturentCard Component with Promoted label", () => {
   // Test Higher Order Compoennt : withPromotedLabel()
   const ResturentCardPromoted = WithPromoted(ResturentCard);
-  render(<ResturentCardPromoted resData={promotedMockData}/>)
+  render(
+  <ResturentCardPromoted resData={promotedMockData}/>
+)
   const promotedLabel = screen.getByText("Promoted");
   expect(promotedLabel).toBeInTheDocument();
 });

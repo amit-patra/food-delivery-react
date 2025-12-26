@@ -2,7 +2,7 @@ import ResturentCard, { WithPromoted } from "./ResturentCard";
 // import { resList } from "../utils/mockdata";
 import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
-import { BASE_URL } from "../utils/constants/";
+import { BASE_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
@@ -23,7 +23,7 @@ const Body = () => {
   useEffect(() => {
     fetchData();
     return () => {
-      console.log("Leaving from this page");
+      // console.log("Leaving from this page");
     };
   }, []);
 
@@ -60,6 +60,7 @@ const Body = () => {
       <div className="filter flex">
         <div className="p-4 m-4">
           <input
+            data-testid="search-resturent"
             type="text"
             className="searc-box outline-solid border-black p-1"
             value={searchText}
@@ -90,7 +91,7 @@ const Body = () => {
             className="mr-2 bg-amber-300 p-2 rounded-sm"
             onClick={() => {
               resturentList = resturentList.filter(
-                (item) => item.info.avgRating > 4
+                (item) => item.info.avgRating > 4.3
               );
               setFilterResturent(resturentList);
             }}
